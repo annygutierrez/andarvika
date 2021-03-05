@@ -41,7 +41,11 @@
                     <h2 class="text-white-50 mx-auto mt-2 mb-5 title-andy">Feliz cumpleaños 23!</h2>
                     <audio  id="sound1" src="assets/angel.mp3" preload="auto">
                     </audio>
-                    <div class="audio" onclick="document.getElementById('sound1').pause();"></div>
+                    <audio  id="sound2" src="assets/culpables.mp3" preload="auto">
+                    </audio>
+                    <audio  id="sound3" src="assets/birthday.mp3" preload="auto">
+                    </audio>
+                    <div class="audio" onclick="pause()"></div>
                         <a onclick="playaudio()" class="btn btn-primary js-scroll-trigger andarvika-btn" href="#about">Ver más</a>
                 </div>
             </div>
@@ -183,11 +187,45 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
+            let nextSong = 'angel';
+            let current = '';
         //   document.getElementById('sound1').currentTime=5000;
         function playaudio () {
-            let audio = document.getElementById('sound1');
-            audio.currentTime = 10;
-            audio.play();
+            if (nextSong === 'angel') {
+                document.getElementById('sound2').pause();
+                document.getElementById('sound3').pause();
+                let audio1 = document.getElementById('sound1');
+                audio1.currentTime = 10;
+                audio1.play();
+               nextSong = 'culpables';
+               current = 'angel';
+            } else if (nextSong === 'culpables') {
+                document.getElementById('sound1').pause();
+                document.getElementById('sound3').pause();
+                let audio2 = document.getElementById('sound2');
+                audio2.currentTime = 5;
+                audio2.play();
+                nextSong = 'birthday';
+                current = 'culpables';
+            } else {
+                document.getElementById('sound2').pause();
+                document.getElementById('sound1').pause();
+                let audio3 = document.getElementById('sound3');
+                audio3.currentTime = 0;
+                audio3.play();
+                nextSong = 'angel';
+                current = 'birthday';
+            };
+        }
+
+        function pause () {
+            if (current === 'angel') {
+                document.getElementById('sound1').pause();
+            } else if (current === 'culpables') {
+                document.getElementById('sound2').pause();
+            } else {
+                document.getElementById('sound3').pause();
+            };
         }
 
         </script>
