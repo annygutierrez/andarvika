@@ -180,6 +180,49 @@
         </section>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Andarvika Rodríguez. All rights reserved 2021</div></footer>
+        <script>
+                let nextSong = 'angel';
+                let current = '';
+            //   document.getElementById('sound1').currentTime=5000;
+            function playaudio () {
+                if (nextSong === 'angel') {
+                    document.getElementById('sound2').pause();
+                    document.getElementById('sound3').pause();
+                    let audio1 = document.getElementById('sound1');
+                    audio1.currentTime = 10;
+                    audio1.play();
+                   nextSong = 'culpables';
+                   current = 'angel';
+                } else if (nextSong === 'culpables') {
+                    document.getElementById('sound1').pause();
+                    document.getElementById('sound3').pause();
+                    let audio2 = document.getElementById('sound2');
+                    audio2.currentTime = 5;
+                    audio2.play();
+                    nextSong = 'birthday';
+                    current = 'culpables';
+                } else {
+                    document.getElementById('sound2').pause();
+                    document.getElementById('sound1').pause();
+                    let audio3 = document.getElementById('sound3');
+                    audio3.currentTime = 0;
+                    audio3.play();
+                    nextSong = 'angel';
+                    current = 'birthday';
+                };
+            }
+    
+            function pause () {
+                if (current === 'angel') {
+                    document.getElementById('sound1').pause();
+                } else if (current === 'culpables') {
+                    document.getElementById('sound2').pause();
+                } else {
+                    document.getElementById('sound3').pause();
+                };
+            }
+    
+            </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -187,48 +230,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script>
-            let nextSong = 'angel';
-            let current = '';
-        //   document.getElementById('sound1').currentTime=5000;
-        function playaudio () {
-            if (nextSong === 'angel') {
-                document.getElementById('sound2').pause();
-                document.getElementById('sound3').pause();
-                let audio1 = document.getElementById('sound1');
-                audio1.currentTime = 10;
-                audio1.play();
-               nextSong = 'culpables';
-               current = 'angel';
-            } else if (nextSong === 'culpables') {
-                document.getElementById('sound1').pause();
-                document.getElementById('sound3').pause();
-                let audio2 = document.getElementById('sound2');
-                audio2.currentTime = 5;
-                audio2.play();
-                nextSong = 'birthday';
-                current = 'culpables';
-            } else {
-                document.getElementById('sound2').pause();
-                document.getElementById('sound1').pause();
-                let audio3 = document.getElementById('sound3');
-                audio3.currentTime = 0;
-                audio3.play();
-                nextSong = 'angel';
-                current = 'birthday';
-            };
-        }
-
-        function pause () {
-            if (current === 'angel') {
-                document.getElementById('sound1').pause();
-            } else if (current === 'culpables') {
-                document.getElementById('sound2').pause();
-            } else {
-                document.getElementById('sound3').pause();
-            };
-        }
-
-        </script>
     </body>
 </html>
